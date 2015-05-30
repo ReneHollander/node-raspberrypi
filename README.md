@@ -2,8 +2,11 @@ node-raspberrypi
 ================
 Various NodeJS bindings for the RaspberryPi
 
-# Download
+# Installing
 This project is published on [npmjs.org](https://www.npmjs.com/package/raspberrypi)!
+```
+npm install raspberrypi
+```
 
 # Current Bindings
 - OpenMAX
