@@ -34,7 +34,7 @@ NAN_METHOD(GPUInterface::New) {
 
 NAN_METHOD(GPUInterface::ViewImageSync) {
   NanScope();
-  GPUInterface *gpui = new GPUInterface();
+  GPUInterface *gpui = ObjectWrap::Unwrap<GPUInterface>(args.This());
 
   Local<String> fileName = args[0].As<String>();
   int duration = args[1]->Uint32Value();
@@ -45,7 +45,7 @@ NAN_METHOD(GPUInterface::ViewImageSync) {
 
 NAN_METHOD(GPUInterface::ViewImageAsync) {
   NanScope();
-  GPUInterface *gpui = new GPUInterface();
+  GPUInterface *gpui = ObjectWrap::Unwrap<GPUInterface>(args.This());
 
   string fileName(*NanAsciiString(args[0]));
   int duration = args[1]->Uint32Value();
@@ -57,7 +57,7 @@ NAN_METHOD(GPUInterface::ViewImageAsync) {
 
 NAN_METHOD(GPUInterface::ViewVideoSync) {
   NanScope();
-  GPUInterface *gpui = new GPUInterface();
+  GPUInterface *gpui = ObjectWrap::Unwrap<GPUInterface>(args.This());
 
   Local<String> fileName = args[0].As<String>();
   int ret = playVideoFilename(gpui->client, *String::Utf8Value(fileName));
@@ -67,7 +67,7 @@ NAN_METHOD(GPUInterface::ViewVideoSync) {
 
 NAN_METHOD(GPUInterface::ViewVideoAsync) {
   NanScope();
-  GPUInterface *gpui = new GPUInterface();
+  GPUInterface *gpui = ObjectWrap::Unwrap<GPUInterface>(args.This());
 
   string fileName(*NanAsciiString(args[0]));
   NanCallback *callback = new NanCallback(args[1].As<Function>());
