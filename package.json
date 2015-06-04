@@ -1,6 +1,6 @@
 {
   "name": "raspberrypi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Various NodeJS bindings for the Raspberry Pi",
   "keywords": ["raspberrypi", "raspi", "gpu", "pi"],
   "main": "lib/raspberrypi.js",
