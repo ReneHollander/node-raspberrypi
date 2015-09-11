@@ -5,7 +5,7 @@
 using namespace v8;
 
 void Init(Handle<Object> exports) {
-  NanScope();
+  Nan::HandleScope scope;
   GPUInterface::Init(exports);
 }
 

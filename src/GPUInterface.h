@@ -14,7 +14,7 @@ extern "C" {
 using namespace v8;
 using namespace std;
 
-class GPUInterface : public node::ObjectWrap {
+class GPUInterface : public Nan::ObjectWrap {
   public:
     GPUInterface();
     ~GPUInterface();
@@ -25,15 +25,15 @@ class GPUInterface : public node::ObjectWrap {
     static NAN_METHOD(ViewImageAsync);
     static NAN_METHOD(ViewVideoSync);
     static NAN_METHOD(ViewVideoAsync);
-    static v8::Persistent<v8::Function> constructor;
+    static Nan::Persistent<v8::Function> constructor;
 
     ILCLIENT_T *client;
 };
 
 
-class AsyncImageViewer : public NanAsyncWorker {
+class AsyncImageViewer : public Nan::AsyncWorker {
   public:
-    AsyncImageViewer(NanCallback *callback, GPUInterface *gpui, string filename, int duration) : NanAsyncWorker(callback), gpui(gpui), filename(filename), duration(duration) {}
+    AsyncImageViewer(Nan::Callback *callback, GPUInterface *gpui, string filename, int duration) : Nan::AsyncWorker(callback), gpui(gpui), filename(filename), duration(duration) {}
     ~AsyncImageViewer() {}
 
     void Execute();
@@ -46,9 +46,9 @@ class AsyncImageViewer : public NanAsyncWorker {
     int returnVal;
 };
 
-class AsyncVideoViewer : public NanAsyncWorker {
+class AsyncVideoViewer : public Nan::AsyncWorker {
   public:
-    AsyncVideoViewer(NanCallback *callback, GPUInterface *gpui, string filename) : NanAsyncWorker(callback), gpui(gpui), filename(filename) {}
+    AsyncVideoViewer(Nan::Callback *callback, GPUInterface *gpui, string filename) : Nan::AsyncWorker(callback), gpui(gpui), filename(filename) {}
     ~AsyncVideoViewer() {}
 
     void Execute();

@@ -1,6 +1,6 @@
 {
   "name": "raspberrypi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Various NodeJS bindings for the Raspberry Pi",
   "keywords": ["raspberrypi", "raspi", "gpu", "pi"],
   "main": "lib/raspberrypi.js",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "bindings": "^1.2.1",
-    "nan": "^1.8.4"
+    "nan": "^2.0.9"
   },
   "bugs": {
     "url": "https://github.com/ReneHollander/node-raspberrypi/issues"
